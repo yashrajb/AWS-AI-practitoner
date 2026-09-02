@@ -1,0 +1,1222 @@
+Absolutely. I’ll turn the transcript into **detailed study notes**, while keeping the same flow as the video. I’ll also add important concepts directly under the relevant points rather than creating a separate “extra information” section.
+
+# Artificial Intelligence — Detailed Notes
+
+## 1. Fundamentals of Artificial Intelligence
+
+### 1.1 What is Artificial Intelligence (AI)?
+
+* **Artificial Intelligence (AI)** is the broad field of building computer systems that can perform tasks that normally require **human-like intelligence**.
+* These tasks can include:
+
+  * Understanding language
+  * Recognizing images
+  * Making predictions
+  * Reasoning and decision-making
+  * Learning from experience/data
+  * Generating text, images, audio, or code
+  * Planning and problem-solving
+
+**Simple example:**
+
+A system that can look at a photograph and identify whether it contains a dog is an AI system.
+
+Another example is a chatbot that understands your question and generates an appropriate response.
+
+> **Important:** AI does not necessarily mean machine learning. An AI system can also be built using explicitly programmed rules.
+
+For example:
+
+```text
+IF temperature > 40°C
+THEN display "Extreme Heat Warning"
+```
+
+This is an AI-like decision system, but it does **not learn from data**.
+
+---
+
+## 2. AI vs Machine Learning vs Deep Learning
+
+These concepts are hierarchical:
+
+```text
+Artificial Intelligence
+│
+├── Rule-based AI
+│
+└── Machine Learning
+    │
+    ├── Traditional ML
+    │
+    └── Deep Learning
+        │
+        └── Neural Networks
+```
+
+### 2.1 Artificial Intelligence
+
+* **AI is the broadest category.**
+* Its goal is to make machines perform tasks requiring intelligence.
+* It can use:
+
+  * Rules
+  * Search algorithms
+  * Logic
+  * Machine learning
+  * Neural networks
+  * Other computational techniques
+
+### 2.2 Machine Learning (ML)
+
+* **Machine Learning is a subset of AI.**
+* Instead of explicitly programming every rule, we provide **data** and allow the system to learn patterns from that data.
+
+For example, instead of writing:
+
+```text
+IF email contains "WIN MONEY"
+THEN spam
+```
+
+we could give an ML model thousands of examples:
+
+```text
+Email 1 → Spam
+Email 2 → Not Spam
+Email 3 → Spam
+...
+```
+
+The model learns patterns associated with spam.
+
+### 2.3 Deep Learning
+
+* **Deep Learning is a specialized subset of ML.**
+* It uses neural networks with **multiple layers**.
+* Deep learning is particularly effective for:
+
+  * Images
+  * Speech
+  * Natural language
+  * Video
+  * Complex pattern recognition
+
+Examples include systems used for:
+
+* Image recognition
+* Speech recognition
+* Large language models
+* Autonomous driving
+
+### 2.4 Neural Networks
+
+* Neural networks are computational models loosely inspired by the structure of biological brains.
+* They contain interconnected computational units called **neurons/nodes**.
+* These nodes are organized into layers:
+
+```text
+Input Layer → Hidden Layers → Output Layer
+```
+
+For example, an image classification model might receive:
+
+```text
+Image pixels
+     ↓
+Neural network
+     ↓
+Features
+     ↓
+Prediction
+     ↓
+"Cat"
+```
+
+The "deep" in deep learning generally refers to having multiple layers between the input and output.
+
+---
+
+# 3. Computer Vision and NLP
+
+AI systems can work with many different types of information.
+
+### 3.1 Computer Vision
+
+**Computer Vision** allows computers to process and understand visual information.
+
+Examples:
+
+* Image classification
+* Object detection
+* Face recognition
+* OCR
+* Medical image analysis
+* Autonomous vehicle perception
+
+Example:
+
+```text
+Input:
+Photo of a street
+
+Computer Vision:
+Detects → Car
+Detects → Pedestrian
+Detects → Traffic light
+```
+
+### 3.2 Natural Language Processing (NLP)
+
+**Natural Language Processing (NLP)** deals with human language.
+
+It allows computers to:
+
+* Understand text
+* Generate text
+* Translate languages
+* Analyze sentiment
+* Answer questions
+* Summarize documents
+* Extract information
+
+Examples:
+
+* ChatGPT
+* Translation systems
+* Search engines
+* Voice assistants
+* Email spam detection
+
+**LLMs are a modern application of NLP.**
+
+---
+
+# 4. Key Differences Between AI, ML and Deep Learning
+
+| Concept       | Meaning                            | Main Approach                    |
+| ------------- | ---------------------------------- | -------------------------------- |
+| AI            | Broad field of intelligent systems | Rules, search, ML, etc.          |
+| ML            | AI that learns patterns from data  | Statistical/data-driven learning |
+| Deep Learning | ML using deep neural networks      | Neural networks with many layers |
+
+### Remember this:
+
+> **AI is the umbrella. ML is inside AI. Deep Learning is inside ML.**
+
+### Important distinction
+
+* **AI:** Can potentially work with explicitly programmed rules.
+* **ML:** Requires data to learn patterns.
+* **Deep Learning:** Usually benefits from very large datasets and substantial computational resources.
+
+Deep learning is not automatically better than traditional ML.
+
+For relatively small, structured datasets, algorithms such as:
+
+* Decision trees
+* Random forests
+* Gradient boosting
+* Logistic regression
+
+can sometimes outperform a neural network while being easier and cheaper to operate.
+
+---
+
+# 5. Model vs Algorithm
+
+These two terms are extremely important.
+
+## 5.1 Algorithm
+
+An **algorithm** is a defined procedure for solving a problem.
+
+Think of it as a **recipe**.
+
+Example:
+
+```text
+1. Take two numbers
+2. Compare them
+3. Return the larger number
+```
+
+That's an algorithm.
+
+In ML, examples include:
+
+* Linear regression
+* Decision trees
+* K-means
+* Gradient descent
+* Neural-network training algorithms
+
+## 5.2 Model
+
+A **model** is the learned mathematical representation produced after applying a learning process to data.
+
+Think:
+
+```text
+Algorithm + Training Data
+          ↓
+       Trained Model
+          ↓
+       Predictions
+```
+
+Example:
+
+```text
+Training data:
+House size + bedrooms + location + price
+
+        ↓
+   ML algorithm
+
+        ↓
+Trained model
+
+        ↓
+Predict price of new house
+```
+
+### Easy analogy
+
+* **Algorithm = recipe**
+* **Training data = ingredients**
+* **Model = finished dish**
+* **Inference = using the finished dish**
+
+---
+
+# 6. Training
+
+**Training** is the process of teaching an ML/AI model using data.
+
+During training:
+
+```text
+Training Data
+      ↓
+   Model
+      ↓
+Prediction
+      ↓
+Compare with expected result
+      ↓
+Calculate error
+      ↓
+Adjust model parameters
+      ↓
+Repeat
+```
+
+The goal is generally to minimize some measure of error/loss.
+
+### Example
+
+Suppose we want to recognize cats.
+
+Training data:
+
+```text
+Image 1 → Cat
+Image 2 → Dog
+Image 3 → Cat
+Image 4 → Dog
+```
+
+The model makes predictions.
+
+If it predicts:
+
+```text
+Actual: Cat
+Predicted: Dog
+```
+
+there is an error.
+
+The training process adjusts the model's parameters so that it can make better predictions.
+
+### Important distinction
+
+**Training is computationally expensive.**
+
+Once a model is trained, using it to make predictions is called **inference**.
+
+---
+
+# 7. Inference / Inferencing
+
+**Inference** is the process of using a trained model to produce predictions or outputs for new input data.
+
+```text
+New Input
+    ↓
+Trained Model
+    ↓
+Prediction / Output
+```
+
+Example:
+
+```text
+User:
+"What is the capital of France?"
+
+       ↓
+
+LLM
+
+       ↓
+
+"Paris"
+```
+
+The model is performing inference.
+
+### Training vs inference
+
+| Training                                     | Inference                           |
+| -------------------------------------------- | ----------------------------------- |
+| Teaches the model                            | Uses the trained model              |
+| Uses training data                           | Uses new input                      |
+| Usually expensive                            | Usually cheaper                     |
+| Happens during model development/fine-tuning | Happens when application is running |
+
+For an application developer, this distinction is very important because **production AI applications are primarily concerned with inference**.
+
+---
+
+# 8. Bias
+
+**Bias** refers to systematic errors or tendencies in an AI system that can cause consistently inaccurate or unfair outcomes.
+
+Bias can enter an AI system through:
+
+* Training data
+* Data collection
+* Labels
+* Model design
+* Human decisions
+* Deployment environment
+
+### Example
+
+Suppose a hiring model is trained on historical hiring data that contains discriminatory patterns.
+
+The model may learn those patterns and reproduce them.
+
+Therefore:
+
+```text
+Bad / biased historical data
+          ↓
+       ML model
+          ↓
+Potentially biased predictions
+```
+
+### Important point
+
+AI models don't automatically become unbiased simply because they are mathematical.
+
+The quality and representativeness of the data matter enormously.
+
+---
+
+# 9. Fairness
+
+**Fairness** is concerned with making sure AI systems do not systematically disadvantage particular groups.
+
+For example, if an AI system is used to evaluate loan applications, developers need to consider whether its predictions unfairly disadvantage certain demographic groups.
+
+Fairness can involve:
+
+* Checking model performance across groups
+* Detecting discriminatory patterns
+* Evaluating training data
+* Monitoring production behavior
+* Applying appropriate safeguards
+
+### Bias vs fairness
+
+* **Bias:** systematic tendency/error in the system.
+* **Fairness:** whether outcomes and treatment are equitable across relevant groups.
+
+These are related but not exactly the same concept.
+
+---
+
+# 10. Model Fit
+
+**Fit** describes how well a model represents or performs on data.
+
+Three important concepts are:
+
+### Underfitting
+
+The model is too simple.
+
+```text
+Model → Doesn't learn enough
+```
+
+It performs poorly even on training data.
+
+### Good fit
+
+The model learns useful patterns without simply memorizing the training data.
+
+### Overfitting
+
+The model learns the training data too closely, including noise.
+
+```text
+Training performance → Very good
+New/unseen data → Poor
+```
+
+This is why we generally evaluate models using **unseen/test data**.
+
+### Generalization
+
+A good ML model should **generalize**: it should perform well on new data rather than only the examples it saw during training.
+
+---
+
+# 11. Large Language Models (LLMs)
+
+**Large Language Models (LLMs)** are AI models designed to process and generate human language.
+
+Examples of tasks:
+
+* Answering questions
+* Summarization
+* Translation
+* Code generation
+* Text generation
+* Information extraction
+* Classification
+* Conversational interaction
+
+Modern LLMs are generally based on **transformer architectures**.
+
+A simplified view:
+
+```text
+User Input
+    ↓
+Tokens
+    ↓
+LLM
+    ↓
+Generated Tokens
+    ↓
+Text Response
+```
+
+### What is a token?
+
+An LLM generally doesn't process an entire sentence as one indivisible unit.
+
+Text is converted into **tokens**, which may represent:
+
+* Words
+* Parts of words
+* Characters/symbols in some cases
+
+For example:
+
+```text
+"I love programming"
+        ↓
+     Tokens
+        ↓
+      Model
+```
+
+### Important distinction
+
+An LLM is a **model**, not an algorithm.
+
+The model has learned statistical patterns from its training process and uses those learned parameters during inference.
+
+---
+
+# 12. Types of Inferencing
+
+There are two important categories mentioned in the video:
+
+## 12.1 Batch Inferencing
+
+Batch inference means processing **multiple inputs together**.
+
+Example:
+
+Suppose an e-commerce company wants to generate recommendations for 10 million customers every night.
+
+Instead of processing customers individually in real time:
+
+```text
+Customer 1
+Customer 2
+Customer 3
+...
+Customer 10M
+       ↓
+Batch processing
+       ↓
+Recommendations
+```
+
+This is suitable when results don't need to be immediately available.
+
+### Typical use cases
+
+* Nightly reports
+* Data processing
+* Customer segmentation
+* Generating embeddings for large datasets
+* Bulk document processing
+* Fraud analysis performed periodically
+
+### Advantages
+
+* Efficient for large amounts of data
+* Can optimize compute utilization
+* Often cheaper than real-time processing
+
+### Disadvantage
+
+Results are not immediately available.
+
+---
+
+# 13. Real-Time Inference
+
+Real-time inference processes an input and produces a response with low latency.
+
+Example:
+
+```text
+User sends message
+       ↓
+AI model
+       ↓
+Response
+```
+
+The user expects the response immediately.
+
+### Examples
+
+* Chatbots
+* Fraud detection during a transaction
+* Autonomous vehicles
+* Voice assistants
+* Real-time recommendation systems
+* Face/object detection in live video
+
+### Important concept: Latency
+
+**Latency** is the time between receiving an input and producing the required response.
+
+For real-time applications:
+
+```text
+Lower latency → Better user experience
+```
+
+For example, a chatbot that takes 30 seconds to respond to every simple request may provide a poor user experience.
+
+---
+
+# 14. Batch vs Real-Time Inference
+
+| Feature             | Batch                   | Real-Time                        |
+| ------------------- | ----------------------- | -------------------------------- |
+| Inputs              | Many at once            | Usually individual/request-based |
+| Response            | Delayed                 | Immediate/low latency            |
+| Cost efficiency     | Usually high            | Can be more expensive            |
+| Latency requirement | Low                     | High                             |
+| Example             | Nightly recommendations | Chatbot                          |
+| Priority            | Throughput              | Latency                          |
+
+### Key terms
+
+* **Latency:** How quickly one request gets a response.
+* **Throughput:** How many requests/data points can be processed over a period of time.
+
+A system may optimize for one or both depending on the application.
+
+---
+
+# 15. Types of Data — Labeled vs Unlabeled
+
+## 15.1 Labeled Data
+
+Data that contains the desired/known outcome.
+
+Example:
+
+```text
+Email                  Label
+----------------------------
+"Win $1 million"       Spam
+"Meeting at 3 PM"      Not Spam
+```
+
+The label tells the model what the correct answer should be.
+
+This is commonly used in **supervised learning**.
+
+### Examples
+
+```text
+Image → Cat
+Image → Dog
+```
+
+```text
+House features → $500,000
+```
+
+```text
+Transaction → Fraud
+```
+
+---
+
+# 16. Unlabeled Data
+
+Data that does not have predefined outcomes/labels.
+
+Example:
+
+```text
+Customer records
+
+Customer A
+Customer B
+Customer C
+...
+```
+
+There is no label saying which customers belong to which category.
+
+Unlabeled data is commonly used in approaches such as **unsupervised learning**.
+
+For example, clustering can discover groups in the data:
+
+```text
+Customers
+    ↓
+Clustering algorithm
+    ↓
+Group A
+Group B
+Group C
+```
+
+### Important
+
+Modern AI systems can use several learning approaches, including:
+
+* Supervised learning
+* Unsupervised learning
+* Self-supervised learning
+* Reinforcement learning
+
+**Self-supervised learning** is particularly important for modern LLMs because models can learn from large amounts of raw data by creating training signals from the data itself.
+
+---
+
+# 17. Structured vs Unstructured Data
+
+Another way to classify data is based on its structure.
+
+## 17.1 Structured Data
+
+Structured data follows a predefined organization/schema.
+
+Typical example:
+
+| Customer ID | Name  | Age | Country |
+| ----------- | ----- | --: | ------- |
+| 101         | John  |  30 | USA     |
+| 102         | Sarah |  27 | India   |
+
+Examples:
+
+* SQL databases
+* Spreadsheets
+* CSV files
+* Tables
+
+Structured data is generally easier for traditional database systems to query and analyze.
+
+---
+
+# 18. Unstructured Data
+
+Unstructured data doesn't naturally fit into a predefined table structure.
+
+Examples:
+
+* Images
+* Videos
+* Audio
+* PDFs
+* Emails
+* Documents
+* Social media posts
+* Free-form text
+
+For example:
+
+```text
+Customer email
+       ↓
+Unstructured text
+       ↓
+NLP/LLM
+       ↓
+Extract:
+- Complaint
+- Product
+- Sentiment
+- Priority
+```
+
+A major reason modern AI is powerful is its ability to extract useful information from previously difficult-to-process unstructured data.
+
+---
+
+# 19. Important Distinction: Labeled/Unlabeled vs Structured/Unstructured
+
+These are **two different ways of classifying data**.
+
+### Classification #1 — Labels
+
+```text
+Labeled
+Unlabeled
+```
+
+This asks:
+
+> **Does the data have a known target/outcome?**
+
+### Classification #2 — Structure
+
+```text
+Structured
+Unstructured
+```
+
+This asks:
+
+> **Does the data follow a predefined structure/schema?**
+
+Therefore, a dataset can be:
+
+```text
+Structured + Labeled
+Structured + Unlabeled
+Unstructured + Labeled
+Unstructured + Unlabeled
+```
+
+Example:
+
+A collection of medical images could be:
+
+```text
+Unstructured
++
+Labeled
+
+Image → Pneumonia
+Image → Normal
+Image → Pneumonia
+```
+
+---
+
+# 20. Common Data Formats in AI
+
+AI systems can work with many forms of data.
+
+## 20.1 Tabular Data
+
+Data organized into rows and columns.
+
+Example:
+
+| Product | Price | Sales |
+| ------- | ----: | ----: |
+| Laptop  |   800 |   500 |
+| Phone   |   500 |   900 |
+
+Common in:
+
+* Business analytics
+* Finance
+* Customer data
+* Sales prediction
+* Traditional ML
+
+---
+
+# 21. Time-Series Data
+
+Time-series data consists of observations collected sequentially over time.
+
+Example:
+
+```text
+Time       Temperature
+08:00      28°C
+09:00      29°C
+10:00      31°C
+11:00      33°C
+```
+
+Other examples:
+
+* Stock prices
+* Sensor readings
+* Website traffic
+* Electricity consumption
+* Weather measurements
+* CPU utilization
+
+The **time/order of observations matters**.
+
+This makes time-series problems different from ordinary tabular prediction problems.
+
+---
+
+# 22. Image Data
+
+Image data represents visual information.
+
+Examples:
+
+* JPEG
+* PNG
+* WebP
+* Medical scans
+* Satellite imagery
+
+AI can perform:
+
+* Classification
+* Object detection
+* Segmentation
+* OCR
+* Image generation
+
+Example:
+
+```text
+Image
+ ↓
+Computer Vision Model
+ ↓
+Objects:
+Car
+Person
+Traffic Light
+```
+
+---
+
+# 23. Text Data
+
+Text data contains written language.
+
+Examples:
+
+* Emails
+* Documents
+* Books
+* Chat messages
+* Web pages
+* Code
+
+AI can use text for:
+
+* Classification
+* Summarization
+* Translation
+* Question answering
+* Search
+* Sentiment analysis
+* Generation
+
+LLMs are particularly important for modern text-based AI applications.
+
+---
+
+# 24. Audio Data
+
+Audio data contains sound information.
+
+Examples:
+
+* Voice recordings
+* Music
+* Podcasts
+* Call-center recordings
+
+AI applications include:
+
+* Speech-to-text
+* Text-to-speech
+* Speaker identification
+* Audio classification
+* Voice assistants
+* Music analysis
+
+Typical pipeline:
+
+```text
+Human Speech
+     ↓
+Audio
+     ↓
+Speech Recognition Model
+     ↓
+Text
+```
+
+---
+
+# 25. Video Data
+
+Video consists of sequences of images/frames, often accompanied by audio.
+
+AI can process video for:
+
+* Object detection
+* Action recognition
+* Surveillance/monitoring
+* Sports analysis
+* Autonomous driving
+* Video search
+* Content understanding
+
+Conceptually:
+
+```text
+Video
+ ↓
+Frames + Audio
+ ↓
+AI Models
+ ↓
+Detected objects/actions/events
+```
+
+Video is generally more computationally demanding than processing a single image because it contains information across time.
+
+---
+
+# 26. How All These Concepts Fit Together
+
+A practical AI application might look like this:
+
+```text
+                DATA
+                 │
+       ┌─────────┼─────────┐
+       ↓         ↓         ↓
+     Text      Images     Tables
+       │         │         │
+       ↓         ↓         ↓
+      NLP    Computer     ML
+              Vision
+       │         │         │
+       └─────────┼─────────┘
+                 ↓
+              MODEL
+                 ↓
+              TRAINING
+                 ↓
+          TRAINED MODEL
+                 ↓
+             INFERENCE
+                 ↓
+              OUTPUT
+```
+
+For a modern AI application:
+
+```text
+User
+ ↓
+Frontend
+ ↓
+Backend/API
+ ↓
+AI Model / LLM
+ ↓
+Inference
+ ↓
+Response
+```
+
+This is particularly important when moving from **AI theory into AI application development**.
+
+---
+
+# 27. Example: AI Customer Support Chatbot
+
+Putting everything together:
+
+### Input
+
+User sends:
+
+> "My order hasn't arrived yet."
+
+### Data
+
+The input is:
+
+```text
+Unstructured
+Text
+```
+
+### AI technology
+
+An LLM/NLP model processes the text.
+
+### Inference
+
+The trained model determines the likely intent:
+
+```text
+Intent → Order delivery issue
+```
+
+### Backend
+
+The application might then query an order database:
+
+```text
+LLM
+ ↓
+Intent extraction
+ ↓
+Backend API
+ ↓
+Order Database
+ ↓
+Order status
+```
+
+### Final response
+
+The AI generates a response using the retrieved information.
+
+This demonstrates how **AI + traditional software engineering** can work together.
+
+---
+
+# 28. Key Concepts to Remember
+
+### AI hierarchy
+
+```text
+AI
+└── ML
+    └── Deep Learning
+        └── Neural Networks
+```
+
+### Model lifecycle
+
+```text
+Data
+ ↓
+Training
+ ↓
+Trained Model
+ ↓
+Inference
+ ↓
+Prediction
+```
+
+### Data classifications
+
+**By labels:**
+
+```text
+Labeled
+Unlabeled
+```
+
+**By structure:**
+
+```text
+Structured
+Unstructured
+```
+
+### Data formats
+
+```text
+Tabular
+Time-series
+Image
+Text
+Audio
+Video
+```
+
+### Inference types
+
+```text
+Batch
+Real-time
+```
+
+---
+
+# 29. Quick Interview/Exam Definitions
+
+* **AI:** The broad field of creating systems capable of performing tasks associated with human intelligence.
+* **Machine Learning:** A subset of AI where systems learn patterns from data.
+* **Deep Learning:** A subset of ML that uses multi-layer neural networks.
+* **Neural Network:** A computational model composed of interconnected processing units organized into layers.
+* **Model:** A learned mathematical representation used to make predictions or generate outputs.
+* **Algorithm:** A procedure or set of steps for solving a problem.
+* **Training:** The process of learning model parameters from data.
+* **Inference:** Using a trained model to generate predictions or outputs.
+* **Bias:** A systematic tendency or error that can produce inaccurate or inequitable outcomes.
+* **Fairness:** The goal of ensuring AI systems produce equitable treatment/outcomes for relevant groups.
+* **LLM:** A large AI model specialized in processing and generating human language.
+* **Batch inference:** Processing many inputs together, usually when immediate results aren't required.
+* **Real-time inference:** Processing inputs with low latency when rapid responses are required.
+* **Labeled data:** Data accompanied by known target outcomes.
+* **Unlabeled data:** Data without predefined target outcomes.
+* **Structured data:** Data organized according to a predefined schema.
+* **Unstructured data:** Data such as text, images, audio, and video that doesn't naturally follow a fixed tabular schema.
+* **Overfitting:** When a model learns training data too closely and performs poorly on unseen data.
+* **Underfitting:** When a model is too simple to adequately learn the underlying patterns.
+* **Generalization:** The ability of a model to perform well on new, unseen data.
+
+### The most important mental model
+
+If you're learning AI as a **software engineer rather than an AI researcher**, don't try to memorize every mathematical detail at this stage. Make sure you can clearly understand this chain:
+
+**Data → Algorithm → Training → Model → Inference → Application Output**
+
+And understand that **AI application development is usually about integrating these models into real software systems**, rather than building the underlying models from scratch.
